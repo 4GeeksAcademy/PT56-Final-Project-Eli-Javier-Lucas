@@ -2,7 +2,7 @@ import React, { useEffect } from "react"
 import rigoImageUrl from "../assets/img/rigo-baby.jpg";
 import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
 
-export const Home = () => {
+export const Signup = () => {
 
 	return (
 		<div className="container mt-5 d-flex flex-column">
@@ -23,7 +23,7 @@ export const Home = () => {
 						<label for="password" className="form-label">Contraseña</label>
 						<input type="password" className="form-control" id="password" />
 					</div>
-					<button type="submit" className="btn btn-primary">Submit</button>
+					<button type="submit" className="btn-registro btn btn-primary">Registrarse</button>
 				</form>
 			</div>
 			<div>

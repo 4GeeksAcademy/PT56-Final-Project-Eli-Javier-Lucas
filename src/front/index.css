@@ -17,3 +17,14 @@
 .container {
   max-width: 500px;
 }
+
+.btn-registro {
+  background-color: #0e6b64;
+  border: none;
+}
+
+.btn-registro:hover {
+  background-color: #fff;
+  border: 1px solid #0e6b64;
+  color: #0e6b64;
+}
