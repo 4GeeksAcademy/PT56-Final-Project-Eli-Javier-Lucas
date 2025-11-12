@@ -48,6 +48,7 @@ export const Signup = () => {
 			} else {
 				alert(data.Mensaje);
 			}
+			// Podemos usar el 'useError' para mostrar errores en pantalla.-
 		} catch (error) {
 			alert("Error de conexión con el servidor");
 		}
@@ -59,7 +60,8 @@ export const Signup = () => {
 					<div className="text-center">
 						<h1 className="text-white pb-3">Registrate</h1>
 					</div>
-					<div className="mb-3">
+					<div className="input-container mb-3">
+						<i class="fa-solid fa-user"></i>
 						<input
 							type="text"
 							className="form-control"
@@ -69,7 +71,8 @@ export const Signup = () => {
 							onChange={handleChange}
 						/>
 					</div>
-					<div className="mb-3">
+					<div className="input-container mb-3">
+						<i class="fa-solid fa-envelope"></i>
 						<input
 							type="email"
 							className="form-control"
@@ -78,7 +81,8 @@ export const Signup = () => {
 							onChange={handleChange}
 						/>
 					</div>
-					<div className="mb-3">
+					<div className="input-container mb-3">
+						<i class="fa-solid fa-lock"></i>
 						<input
 							type="password"
 							className="form-control"
