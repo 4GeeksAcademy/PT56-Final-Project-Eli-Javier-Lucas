@@ -9,6 +9,9 @@ export const Login = () => {
         password: ""
     });
 
+    // Variable de entorno.-
+    const API_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:3001";
+
     // Actualiza el estado
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.id]: e.target.value });
@@ -19,7 +22,7 @@ export const Login = () => {
         e.preventDefault();
 
         try {
-            const response = await fetch("http://localhost:3001/api/login", {
+            const response = await fetch(`${API_URL}/api/login`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
