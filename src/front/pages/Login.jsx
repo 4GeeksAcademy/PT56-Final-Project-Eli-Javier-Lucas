@@ -49,7 +49,7 @@ export const Login = () => {
                     </div>
                     {/* Ingresar Email*/}
                     <div className="input-container mb-3">
-                        <i class="fa-solid fa-envelope"></i>
+                        <i className="fa-solid fa-envelope"></i>
                         <input
                             type="email"
                             className="form-control"
@@ -62,7 +62,7 @@ export const Login = () => {
                     </div>
                     {/* Ingresar password*/}
                     <div className="input-container mb-3">
-                        <i class="fa-solid fa-lock"></i>
+                        <i className="fa-solid fa-lock"></i>
                         <input
                             type="password"
                             className="form-control"
