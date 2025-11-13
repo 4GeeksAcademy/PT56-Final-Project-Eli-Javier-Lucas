@@ -79,9 +79,6 @@ export const Login = () => {
                         <Link to="/budget" type="submit" className="btn btn-iniciar_sesion w-100">
                             Iniciar sesión
                         </Link>
-                        <Link to="/" className="btn btn-iniciar_sesion w-100">
-                            Registrate
-                        </Link>
                     </div>
                 </form>
             </div>

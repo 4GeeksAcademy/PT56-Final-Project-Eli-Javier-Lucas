@@ -54,7 +54,7 @@ def signup():
     NewUser.set_password(password)
     db.session.add(NewUser)
     db.session.commit()
-    return jsonify({"Mensaje": "El usuario se ha creado correctamente", "user": NewUser.serialize()}), 201
+    return jsonify({"Mensaje": "El usuario se ha creado correctamente, por favor proceda a iniciar sesion.", "user": NewUser.serialize()}), 201
 
 # Login > Acceso
 

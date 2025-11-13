@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react"
-import rigoImageUrl from "../assets/img/rigo-baby.jpg";
 import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -39,6 +38,8 @@ export const Signup = () => {
 			const data = await response.json();
 			if (response.ok) {
 				alert(data.Mensaje);
+				navigate("/login");
+
 			} else {
 				alert(data.Mensaje);
 			}
@@ -90,9 +91,6 @@ export const Signup = () => {
 					</div>
 					<div className="d-flex justify-content-center gap-2">
 						<button type="submit" className="btn btn-registro w-100">Registrarse</button>
-						<Link to="/login" className="btn btn-iniciar_sesion w-100">
-							Iniciar sesión
-						</Link>
 					</div>
 				</form>
 			</div>
