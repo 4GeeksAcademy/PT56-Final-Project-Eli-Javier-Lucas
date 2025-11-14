@@ -9,6 +9,8 @@ export const Login = () => {
         password: ""
     });
 
+    const navigate = useNavigate();
+
     // Variable de entorno.-
     const API_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:3001";
 
@@ -31,10 +33,14 @@ export const Login = () => {
             });
 
             const data = await response.json();
+
             // Almacenamos el token
             if (response.ok) {
                 alert(data.Mensaje);
-                localStorage.setItem("token", data.token);
+                localStorage.setItem("jwt", data.token);
+                setTimeout(() => {
+                    navigate("/budget");
+                }, 50);
             } else {
                 alert(data.Mensaje);
             }
@@ -80,12 +86,10 @@ export const Login = () => {
                         />
                     </div>
 
-                    {/* Botones*/}
-                    <div className="d-flex justify-content-center gap-2">
-                        <Link to="/budget" type="submit" className="btn btn-iniciar_sesion w-100">
-                            Iniciar sesión
-                        </Link>
-                    </div>
+                    {/* Botón */}
+                    <button type="submit" className="btn btn-iniciar_sesion w-100">
+                        Iniciar sesión
+                    </button>
                 </form>
             </div>
         </div>

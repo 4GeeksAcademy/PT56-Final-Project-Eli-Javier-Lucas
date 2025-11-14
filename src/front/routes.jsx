@@ -10,6 +10,7 @@ import { Signup } from "./pages/Signup";
 import { Login } from "./pages/Login";
 import { Budget } from "./pages/Budget";
 import { Home } from "./pages/Home";
+import { PrivateRoute } from "./components/PrivateRoute";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -22,7 +23,14 @@ export const router = createBrowserRouter(
       <Route path="home" element={<Home />} />
       <Route path="login" element={<Login />} />
       <Route path="signup" element={<Signup />} />
-      <Route path="budget" element={<Budget />} />
+      <Route
+        path="budget"
+        element={
+          <PrivateRoute>
+            <Budget />
+          </PrivateRoute>
+        }
+      />
 
     </Route>
   )
