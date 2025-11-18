@@ -7,10 +7,9 @@ export const Home = () => {
     const navigate = useNavigate();
 
     return (
-        <div className="home-container d-flex flex-column align-items-center text-center p-4" style={{ minHeight: "100vh" }}
-        >
+        <div className="home-container d-flex flex-column align-items-center text-center">
             {/* Imagen central */}
-            <div className="mt-3 mb-4">
+            <div className="mt-3 mb-4 z-1">
                 <img
                     src={Icon}
                     alt="Logo Billetera Familiar"
@@ -20,7 +19,7 @@ export const Home = () => {
             </div>
 
             {/* Botones inferiores lado a lado */}
-            <div className="mt-3 mb-3 d-flex justify-content-center gap-3">
+            <div className="mt-3 mb-3 d-flex justify-content-center gap-3 z-1">
                 <button
                     className="btn btn-registro px-4 py-2"
                     style={{ minWidth: "140px" }}
