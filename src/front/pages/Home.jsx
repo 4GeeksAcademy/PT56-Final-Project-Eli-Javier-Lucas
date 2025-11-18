@@ -8,33 +8,36 @@ export const Home = () => {
 
     return (
         <div className="home-container d-flex flex-column align-items-center text-center">
-            {/* Imagen central */}
-            <div className="mt-3 mb-4 z-1">
-                <img
-                    src={Icon}
-                    alt="Logo Billetera Familiar"
-                    className="rounded-4 border border-success border-4"
-                    style={{ maxWidth: "300px", borderRadius: "20px" }}
-                />
-            </div>
+            <div className="z-1 inicio card">
+                <h1>Gestor de gastos</h1>
+                {/* Imagen central */}
+                <div className="">
+                    <img
+                        src={Icon}
+                        alt="Logo Billetera Familiar"
+                        className=""
+                        style={{ maxWidth: "300px" }}
+                    />
+                </div>
 
-            {/* Botones inferiores lado a lado */}
-            <div className="mt-3 mb-3 d-flex justify-content-center gap-3 z-1">
-                <button
-                    className="btn btn-registro px-4 py-2"
-                    style={{ minWidth: "140px" }}
-                    onClick={() => navigate("/Signup")}
-                >
-                    Registrarse
-                </button>
+                {/* Botones inferiores lado a lado */}
+                <div className="my-2 d-flex justify-content-center gap-3 z-1">
+                    <button
+                        className="btn btn-registro"
+                        style={{ minWidth: "140px" }}
+                        onClick={() => navigate("/Signup")}
+                    >
+                        Registrarse
+                    </button>
 
-                <button
-                    className="btn btn-iniciar_sesion px-4 py-2"
-                    style={{ minWidth: "140px" }}
-                    onClick={() => navigate("/Login")}
-                >
-                    Acceder
-                </button>
+                    <button
+                        className="btn btn-iniciar_sesion"
+                        style={{ minWidth: "140px" }}
+                        onClick={() => navigate("/Login")}
+                    >
+                        Acceder
+                    </button>
+                </div>
             </div>
         </div>
     );
