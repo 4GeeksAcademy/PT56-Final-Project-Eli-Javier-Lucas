@@ -25,9 +25,9 @@
 }
 
 .nav-btns:hover {
-  background-color: #0e6b64;
+  background-color: #00a884;
   color: #fff;
-  border: 1px solid #fff;
+  border: 1px solid #00a884;
 }
 
 .nav-btn_cerrar_sesion {
@@ -127,7 +127,39 @@
   font-family: "Inter", sans-serif;
 }
 
-.home_text button {
-  border: 1px solid green;
+.home_button {
+  background-color: #0e6b64;
+  border: 1px solid #0e6b64;
   width: 25%;
+  color: #fff;
+}
+
+.home_button:hover {
+  border: 1px solid #00a884;
+  background-color: #00a884;
+  color: #fff;
+}
+
+/* Estilos para InfoGestor */
+
+.info-gestor {
+  display: flex;
+  flex-direction: column;
+  max-width: 1000px;
+}
+
+.info-gestor_titulo h1 {
+  text-align: center;
+}
+
+.info-gestor_btn {
+  background-color: #0e6b64;
+  border: 1px solid #0e6b64;
+  color: #fff;
+}
+
+.info-gestor_btn:hover {
+  border: 1px solid #00a884;
+  background-color: #00a884;
+  color: #fff;
 }

@@ -19,31 +19,15 @@ export const Home = () => {
             <div className="home_text">
                 <h1>¡Bienvenidos!</h1>
                 <p>
-                    Acá va a ir un párrafo donde se explique que es un gestor de gastos y para saber mas, haremos una visual donde se vea el porque es necesario tener uno para los tiempos en los que vivimos.
-                    A esa visual entraremos desde el boton 'leer mas' y los botones del formulario estaran en el navbar, hasta que no esten listos, se quedaran ahi para que se pueda seguir ingresando.
+                    Un gestor de gastos familiar es necesario  para tomar control de las finanzas, identificar a dónde va el dinero, evitar deudas, ahorrar para metas y prepararse para imprevistos. Permite tener una visión clara de los ingresos y gastos, lo que facilita la toma de decisiones financieras acertadas para lograr el bienestar económico de la familia.
                 </p>
+                <p>Para saber más, solo haz click en el botón de acá abajo.</p>
                 <button
-                    className="btn"
+                    className="btn home_button"
                     onClick={() => navigate("/InfoGestor")}
                 >
                     Leer más
                 </button>
-                {/* Botones inferiores lado a lado
-                <div className="my-2 d-flex gap-2">
-                    <button
-                        className="btn btn-registro"
-                        onClick={() => navigate("/Signup")}
-                    >
-                        Registrarse
-                    </button>
-
-                    <button
-                        className="btn btn-iniciar_sesion"
-                        onClick={() => navigate("/Login")}
-                    >
-                        Acceder
-                    </button> 
-                </div>*/}
             </div>
 
         </div>
