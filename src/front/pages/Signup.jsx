@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react"
-import { Link, useNavigate } from 'react-router-dom';
+import { useState } from "react"
+import { useNavigate } from 'react-router-dom';
 
 
 export const Signup = () => {
@@ -12,6 +12,7 @@ export const Signup = () => {
 
 	const [message, setMessage] = useState("");
 	const [error, setError] = useState("");
+	const [loading, setLoading] = useState(false);
 	const navigate = useNavigate();
 
 	const API_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:3001";
@@ -24,6 +25,8 @@ export const Signup = () => {
 	// Envia el formulario
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+		setLoading(true);
+
 		try {
 			//Hacer el POST al backendzs
 
@@ -50,10 +53,12 @@ export const Signup = () => {
 
 		} catch (error) {
 			setError(error.message)
+		} finally {
+			setLoading(false)
 		}
 	}
 	return (
-		<div className="container_formulario mx-auto mt-5 d-flex flex-column">
+		<div className="container_formulario d-flex flex-column">
 			<div>
 				<form className="card p-3" onSubmit={handleSubmit}>
 					<div className="text-center">
@@ -98,7 +103,13 @@ export const Signup = () => {
 					{error && <div className="alert alert-danger">{error}</div>}
 
 					<div className="d-flex justify-content-center gap-2">
-						<button type="submit" className="btn btn-registro w-100">Registrarse</button>
+						<button
+							type="submit"
+							className="btn btn-registro w-100"
+							disabled={loading}
+						>
+							{loading ? "Cargando..." : "Registrarse"}
+						</button>
 					</div>
 				</form>
 			</div>
