@@ -23,25 +23,27 @@ export const Navbar = () => {
 	}, []);
 
 	return (
-		<nav className="navbar container-fluid d-flex justify-content-between align-items-center px-3">
+		<nav className="navbar container-fluid d-flex justify-content-around align-items-center">
 
-			<div className="d-flex aling-items-center gap-3">
-				<Link to="/Home">
-					<img
-						src={Icon}
-						alt=""
-						width={90}
-						height={90}
-						className="rounded-4 border border-success border-4"
-					/>
-				</Link>
-			</div>
-			<div className="">
-				<h1>Billetera Familiar</h1>
+			<div className="nav-container d-flex align-items-center">
+				<div className="d-flex aling-items-center">
+					<Link to="/Home">
+						<img
+							src={Icon}
+							alt=""
+							width={75}
+							height={75}
+							className="rounded-4 border"
+						/>
+					</Link>
+				</div>
+
+				<div className="nav-text text-white">
+					<h1>Billetera Familiar</h1>
+				</div>
 			</div>
 
 			{/* Botones */}
-
 			<div className="d-flex align-items-center gap-2">
 
 				{/* Si el token NO existe, muestra el login y el signup */}

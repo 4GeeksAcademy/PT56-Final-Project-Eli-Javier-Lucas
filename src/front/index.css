@@ -6,10 +6,43 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 /* fuente Jost */
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jost:ital,wght@0,100..900;1,100..900&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
-
+/* fuente Roboto */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 /* Estilos para el Navbar */
 .navbar {
-  background-color: #0e6b64;
+  background-color: rgb(14, 107, 100);
+  width: 100%;
+  gap: 70px;
+  box-shadow: 0px 4px 26px 1px rgba(14, 107, 100, 0.82);
+  -webkit-box-shadow: 0px 4px 26px 1px rgba(14, 107, 100, 0.82);
+  -moz-box-shadow: 0px 4px 26px 1px rgba(14, 107, 100, 0.82);
+}
+
+.nav-text {
+  font-family: "Roboto", sans-serif;
+  border-left: 2px solid #00a884;
+  margin-left: 5px;
+  padding-left: 5px;
+}
+
+.nav-text h1 {
+  font-size: 35px;
+  position: relative;
+  cursor: default;
+}
+
+.nav-text h1::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: white;
+  transition: width 0.4s ease-out;
+}
+
+.nav-text h1:hover::after {
   width: 100%;
 }
 
@@ -24,27 +57,31 @@
 }
 
 .nav-btns {
-  background-color: #fff;
-  color: #0e6b64;
-  border: 1px solid #0e6b64;
+  font-size: 18px;
+  background-color: #0e6b64;
+  color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .nav-btns:hover {
-  background-color: #00a884;
   color: #fff;
-  border: 1px solid #00a884;
+  border: 1px solid #0e6b64;
+  background: #00a884;
+  box-shadow: 0 4px 20px #00a88480;
+  transform: translateY(-3px);
 }
 
 .nav-btn_cerrar_sesion {
-  background-color: #fff;
-  color: #dc2525;
-  border: 1px solid #dc2525;
+  font-size: 18px;
+  color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .nav-btn_cerrar_sesion:hover {
-  background-color: #dc2525;
   color: #fff;
-  border: 1px solid #dc2525;
+  background: #dc2525;
+  box-shadow: 0 4px 20px #dc252580;
+  transform: translateY(-3px);
 }
 
 /* Estilos para los formularios <Login> y <Signup> */
