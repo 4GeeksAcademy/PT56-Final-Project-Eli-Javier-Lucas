@@ -13,6 +13,8 @@ export const Budget = () => {
     const token = localStorage.getItem("jwt");
     const user = JSON.parse(localStorage.getItem("user"));
 
+    const [loading, setLoading] = useState(true);
+
     // Valida el token y carga los presupuestos al iniciar
     useEffect(() => {
         const checkAndLoadBudgets = async () => {
@@ -29,6 +31,7 @@ export const Budget = () => {
 
     // Nueva función para cargar los presupuestos del usuario desde el backend
     const loadUserBudgets = async () => {
+        setLoading(true);
         try {
             const res = await fetch(`${API_URL}/api/budgets/user/${user.id}`, { // Asumo un endpoint para obtener presupuestos por usuario
                 headers: { Authorization: `Bearer ${token}` },
@@ -42,12 +45,44 @@ export const Budget = () => {
         } catch (error) {
             alert("Error de conexión al cargar presupuestos.");
         }
+        setLoading(false);
     };
 
     const handleSelectBudget = (budgetId) => {
         navigate(`/budget/${budgetId}`);
     };
+    const SkeletonBudgets = () => {
+        return (
+            <div className="mt-4">
+                <h4 className="text-white mb-4">Cargando tus presupuestos...</h4>
 
+                {[1, 2, 3].map((i) => (
+                    <div
+                        key={i}
+                        className="p-3 mb-3"
+                        style={{
+                            height: "70px",
+                            borderRadius: "10px",
+                            border: "2px solid #2c2f36",
+                            background: "#d9d9d9",
+                            display: "flex",
+                            alignItems: "center",
+                            animation: "loading 1.6s infinite ease-in-out",
+                        }}
+                    >
+                        <div
+                            style={{
+                                width: "40%",
+                                height: "15px",
+                                borderRadius: "5px",
+                                background: "#c5c5c5",
+                            }}
+                        ></div>
+                    </div>
+                ))}
+            </div>
+        );
+    };
     return (
         <div className="container text-center  mt-5">
             <h1>Estamos felices de verte, {user.name}.</h1>
@@ -55,7 +90,7 @@ export const Budget = () => {
 
             {/* Crear Presupuesto */}
             <button
-                className="btn btn-success m-2"
+                className="btn btn-custom m-2"
                 onClick={() => navigate("/CreateBudget")}
             >
                 Crear Nuevo Presupuesto
@@ -65,7 +100,9 @@ export const Budget = () => {
             {/* Listado de Presupuestos */}
             <div className="card p-4 my-4" style={{ border: '2px solid #2c2f36' }}>
                 <h4 className="card-title text-white">Estos son tus presupuestos</h4>
-                {budgets.length === 0 ? (
+                {loading ? (
+                    <SkeletonBudgets />
+                ) : budgets.length === 0 ? (
                     <p>No tienes presupuestos creados. ¡Crea uno nuevo!</p>
                 ) : (
                     <ListaPresupuestos

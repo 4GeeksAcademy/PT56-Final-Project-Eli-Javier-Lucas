@@ -10,11 +10,11 @@ export const Balance = ({ ingresos, gastos }) => {
             <h5 className="mb-3 text-center">Balance</h5>
 
             <div className="d-flex justify-content-between border-bottom py-2">
-                <strong>Ingreso:</strong> <span>₡{totalIngresos}</span>
+                <strong>Ingresos:</strong> <span>₡{totalIngresos}</span>
             </div>
 
             <div className="d-flex justify-content-between border-bottom py-2">
-                <strong>Egreso:</strong> <span>₡{totalGastos}</span>
+                <strong>Egresos:</strong> <span>₡{totalGastos}</span>
             </div>
 
             <div className="d-flex justify-content-between py-2">

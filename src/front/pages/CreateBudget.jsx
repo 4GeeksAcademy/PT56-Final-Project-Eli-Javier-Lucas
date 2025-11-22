@@ -10,7 +10,6 @@ import { Balance } from "../components/Balance";
 export const CreateBudget = () => {
 
     const navigate = useNavigate();
-
     const [budgetName, setBudgetName] = useState("");
     const [budgetId, setBudgetId] = useState(null);
     const [gastos, setGastos] = useState([]);
@@ -123,11 +122,10 @@ export const CreateBudget = () => {
                     onChange={(e) => setBudgetName(e.target.value)}
                     className="form-control w-50"
                 />
-                <button className="btn btn-primary" onClick={crearBudget}>
+                <button className="btn btn-custom" onClick={crearBudget}>
                     Crear Presupuesto
                 </button>
             </div>
-
             {/* Botones Ingreso / Gasto */}
             <div className="d-flex justify-content-center gap-3 mb-4">
                 <button
@@ -202,7 +200,14 @@ export const CreateBudget = () => {
                 token={token}
                 onAdded={RecargarInfo}
             />
-
+            <div className="text-center mt-4">
+                <button
+                    className="btn btn-secondary px-4"
+                    onClick={() => navigate("/budget")}
+                >
+                    ← Volver a Presupuestos
+                </button>
+            </div>
         </div>
     );
 };

@@ -22,32 +22,41 @@ import { Balance } from "./components/Balance";
 import { ListaPresupuestos } from "./components/ListaPresupuestos"
 import { Graficos } from "./components/Graficos"
 
-DetallePresupuesto
-
-
 export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />} errorElement={<h1>Not found!</h1>} >
 
       {/* Homepage */}
       <Route index element={<Home />} />
+      <Route path="Home" element={<Home />} />
+      <Route path="InfoGestor" element={<InfoGestor />} />
 
       {/* Auth Routes */}
-      <Route path="home" element={<Home />} />
       <Route path="login" element={<Login />} />
       <Route path="signup" element={<Signup />} />
-      <Route path="budget" element={<PrivateRoute><Budget /></PrivateRoute>} />
+
+      {/* Budget Routes */}
+      <Route path="budget" element={
+        <PrivateRoute>
+          <Budget />
+        </PrivateRoute>
+      } />
+      <Route path="budget/:id" element={
+        <PrivateRoute>
+          <DetallePresupuesto />
+        </PrivateRoute>
+      } />
+
+      {/* Rutas de componentes */}
+      <Route path="ListaPresupuestos" element={<ListaPresupuestos />} />
       <Route path="CreateBudget" element={<CreateBudget />} />
       <Route path="AgregarGasto" element={<AgregarGasto />} />
       <Route path="AgregarIngreso" element={<AgregarIngreso />} />
-      <Route path="ListaPresupuestos" element={<ListaPresupuestos />} />
       <Route path="Graficos" element={<Graficos />} />
-
       <Route path="ListaIngresos" element={<ListaIngresos />} />
       <Route path="ListaGastos" element={<ListaGastos />} />
       <Route path="Balance" element={<Balance />} />
 
-      <Route path="InfoGestor" element={<InfoGestor />} />
 
 
     </Route>
