@@ -111,10 +111,10 @@ export const CreateBudget = () => {
         }
     };
     return (
-        <div className="container mt-4">
+        <div className="create_budget container">
 
             {/* Input + botón */}
-            <div className="d-flex justify-content-center gap-2 mb-4">
+            <div className="create_budget-input_button">
                 <input
                     type="text"
                     placeholder="Nombre del presupuesto"
@@ -122,14 +122,15 @@ export const CreateBudget = () => {
                     onChange={(e) => setBudgetName(e.target.value)}
                     className="form-control w-50"
                 />
-                <button className="btn btn-custom" onClick={crearBudget}>
+                <button className="btn" onClick={crearBudget}>
                     Crear Presupuesto
                 </button>
             </div>
+
             {/* Botones Ingreso / Gasto */}
-            <div className="d-flex justify-content-center gap-3 mb-4">
+            <div className="create_budget-ingreso_gasto">
                 <button
-                    className="btn btn-outline-success"
+                    className="create_budget-button_ingreso btn btn-outline-success"
                     disabled={!budgetId}
                     onClick={() => setShowIngreso(true)}
                 >
@@ -137,7 +138,7 @@ export const CreateBudget = () => {
                 </button>
 
                 <button
-                    className="btn btn-outline-danger"
+                    className="create_budget-button_gasto btn btn-outline-danger"
                     disabled={!budgetId}
                     onClick={() => setShowGasto(true)}
                 >
@@ -200,7 +201,7 @@ export const CreateBudget = () => {
                 token={token}
                 onAdded={RecargarInfo}
             />
-            <div className="text-center mt-4">
+            <div className="create_budget-volver_presupuesto">
                 <button
                     className="btn btn-secondary px-4"
                     onClick={() => navigate("/budget")}

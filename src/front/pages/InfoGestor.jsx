@@ -38,54 +38,54 @@ export const InfoGestor = () => {
                             Un presupuesto mensual no se trata solo de sumas y restas. Para que realmente funcione, debe estar alineado con las necesidades del hogar, ser flexible y mantenerse actualizado.
                         </p>
                     </div>
-                    <div className="info-gestor_consejos__ul">
+                    <div className="info-gestor_consejos">
                         <ul>
-                            <li>
-                                <h3>- Establece objetivos financieros claros</h3>
-                                <p>
+                            <li className="card">
+                                <h3 className="px-4">Establece objetivos financieros claros</h3>
+                                <p className="px-4">
                                     Antes de empezar, es importante saber qué se quiere lograr. El presupuesto puede ayudarte a pagar deudas, aumentar tu ahorro o simplemente organizar mejor tus costos.
                                 </p>
-                                <p>
+                                <p className="px-4">
                                     Tener una meta clara permite tomar mejores decisiones y evaluar si el esfuerzo está dando resultados. Además, mantiene la motivación con el paso de los meses.
                                 </p>
                             </li>
 
-                            <li>
-                                <h3>- Sé realista con los montos y categorías</h3>
-                                <p>
+                            <li className="card">
+                                <h3 className="px-4">Sé realista con los montos y categorías</h3>
+                                <p className="px-4">
                                     Anota cada ingreso que recibas: sueldos, trabajos independientes, pensiones o ingresos variables. No dejes nada fuera, aunque parezca poco relevante.
                                 </p>
-                                <p>
+                                <p className="px-4">
                                     Lo mismo con los gastos familiares. Desde los pagos fijos como el alquiler, hasta pequeñas compras del día a día. Esa suma de detalles ofrece una visión real y precisa de tus finanzas.
                                 </p>
                             </li>
 
-                            <li>
-                                <h3>- Usa herramientas que te faciliten el seguimiento</h3>
-                                <p>
+                            {/* <li className="card">
+                                <h3 className="px-4">Usa herramientas que te faciliten el seguimiento</h3>
+                                <p className="px-4">
                                     Si la herramienta es compleja o poco práctica, será difícil mantener la constancia. Un sistema simple favorece la disciplina.
                                 </p>
-                                <p>
+                                <p className="px-4">
                                     Es por eso que en Billetera Familiar tenemos todo lo que necesitas para que crees tu propio presupuesto familiar. Una app en donde podes ver mediante nuestros gráficos cual es el sector que más dinero te demanda y tengas más control sobre tu dinero. Con una interfaz gráfica amable a la vista, pero muy práctica a la hora de usarla, intuitiva y, con unos pocos clicks, vas a tener tu presupuesto para que tengan el control de sus finanzas y cumplan todos sus objetivos.
                                 </p>
-                            </li>
+                            </li> */}
 
-                            <li>
-                                <h3>- Revisa y ajusta el presupuesto cada mes</h3>
-                                <p>
+                            <li className="card">
+                                <h3 className="px-4">Revisa y ajusta el presupuesto cada mes</h3>
+                                <p className="px-4">
                                     Revisar tu presupuesto una vez al mes permite detectar errores, ajustar montos y hacer mejoras. También ayuda a comparar entre meses y ver si estás avanzando hacia tu objetivo.
                                 </p>
-                                <p>
+                                <p className="px-4">
                                     La revisión no debe verse como una corrección, sino como una oportunidad para tomar decisiones más acertadas.
                                 </p>
                             </li>
 
-                            <li>
-                                <h3>- Involucra a toda la familia</h3>
-                                <p>
+                            <li className="card">
+                                <h3 className="px-4">Involucra a toda la familia</h3>
+                                <p className="px-4">
                                     Si el presupuesto afecta a varias personas del hogar, lo ideal es que todos lo conozcan. Esto genera compromiso y evita confusiones en el manejo del dinero.
                                 </p>
-                                <p>
+                                <p className="px-4">
                                     También es una forma de enseñar a los hijos sobre hábitos financieros saludables, involucrándolos según su edad. Esta práctica no solo refuerza el compromiso familiar, también responde al enfoque de Billetera Familiar, que promueven el desarrollo de habilidades financieras desde edades tempranas.
                                 </p>
                             </li>
@@ -95,13 +95,13 @@ export const InfoGestor = () => {
                 <div className="info-gestor_btn">
                     <button
                         onClick={() => navigate("/home")}
-                        className="btn info-gestor_btn__home"
+                        className="btn info-gestor_btn-home"
                     >
                         Home
                     </button>
                 </div>
             </div>
-            <div className="info-gestor_container__img">
+            <div className="info-gestor_container-img">
                 <img
                     src={infoGestorImg1}
                     alt="familia_presupuesto"

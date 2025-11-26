@@ -237,7 +237,7 @@
   padding: 0 90px;
 }
 
-.info-gestor_container__img {
+.info-gestor_container-img {
   display: flex;
   flex-direction: column;
   align-content: space-between;
@@ -250,9 +250,9 @@
 }
 
 .info-gestor_img-2 {
-  margin-top: 100%;
-  width: 500px;
-  height: 500px;
+  margin-top: 80%;
+  width: 450px;
+  height: 450px;
 }
 
 .info-gestor_titulo,
@@ -274,12 +274,35 @@
   font-family: "Libre Franklin", sans-serif;
 }
 
-.info-gestor_consejos__ul ul {
+.info-gestor_consejos ul {
+  /* Se refiere al contenedor de las 'Cards' */
   list-style-type: none;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 30px;
 }
 
-.info-gestor_consejos__ul ul li p {
-  padding-left: 20px;
+.info-gestor_consejos ul li {
+  /* Se refiere a las 'Cards' */
+  width: 350px;
+  background-color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-gestor_consejos ul li:hover {
+  box-shadow: 0 4px 20px #ffffffdc;
+}
+
+.info-gestor_consejos ul li h3 {
+  /* Se refiere a los 'H3' de las 'Cards' */
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.info-gestor_consejos ul li p {
+  /* Se refiere a los 'P' de las 'Cards' */
+  font-size: 14px;
 }
 
 .info-gestor_titulo,
@@ -293,18 +316,18 @@
   justify-content: center;
 }
 
-.info-gestor_btn__home {
-  background-color: #0e6b64;
+.info-gestor_btn-home {
+  background-color: #ec9a06;
   color: #fff;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   width: 15%;
   margin: 25px 0;
 }
 
-.info-gestor_btn__home:hover {
+.info-gestor_btn-home:hover {
+  background-color: #ec9a06;
   color: #fff;
-  background: #00a884;
-  box-shadow: 0 4px 20px #00a88480;
+  box-shadow: 0 4px 20px #ec9a0680;
   transform: translateY(-3px);
 }
 
@@ -346,6 +369,85 @@
   font-size: 15px;
 }
 
+/* ######################### Estilos para el CreateBudget ######################### */
+
+.create_budget {
+  height: 100vh;
+  margin: 30px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.create_budget-input_button {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.create_budget-input_button button {
+  background-color: #0e6b64;
+  border-color: #0e6b64;
+  color: #fff;
+}
+
+.create_budget-input_button button:hover,
+.create_budget-input_button button:focus {
+  background-color: #00a884;
+  border-color: #00a884;
+  color: #fff;
+  box-shadow: 0 4px 20px #00a88480;
+}
+
+.create_budget-ingreso_gasto {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.create_budget-button_ingreso {
+  border-color: #006e57;
+  color: #006e57;
+}
+
+.create_budget-button_ingreso:hover {
+  border-color: #00a884;
+  color: #fff;
+  background-color: #00a884;
+  box-shadow: 0 4px 20px #00a88480;
+}
+
+.create_budget-button_gasto {
+  border-color: #dc2525;
+  color: #dc2525;
+}
+
+.create_budget-button_gasto:hover {
+  border-color: #dc2525;
+  color: #fff;
+  background-color: #dc2525;
+  box-shadow: 0 4px 20px #dc252580;
+}
+
+.create_budget-volver_presupuesto {
+  display: flex;
+  justify-content: center;
+}
+
+.create_budget-volver_presupuesto button {
+  background-color: #ec9a06;
+  border-color: #ec9a06;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.create_budget-volver_presupuesto button:hover {
+  color: #fff;
+  background: #ec9a06;
+  border-color: #ec9a06;
+  box-shadow: 0 4px 20px #ec9a0680;
+  transform: translateX(-3px);
+}
+
 /* ######################### Estilos para el Footer ######################### */
 
 .footer {
@@ -371,37 +473,23 @@
   padding: 10px 0;
 }
 
-.footer_button {
+.footer_link {
   width: 25%;
   display: flex;
   justify-content: center;
 }
 
-.footer_button button {
+.footer_link-descripcion {
   background-color: #ec9a06;
   color: #fff;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.footer_button button:hover {
+.footer_link-descripcion:hover {
   background-color: #ec9a06;
   color: #fff;
   box-shadow: 0 4px 20px #ec9a0680;
   transform: translateY(-3px);
-}
-
-.footer_button button:focus {
-  background-color: #ec9a0680;
-}
-
-.footer_button ul {
-  background-color: #ec9a06;
-}
-
-.footer_button ul li a {
-  text-decoration: none;
-  color: #fff;
-  margin-left: 10px;
 }
 
 .footer_copyright {
@@ -459,16 +547,6 @@
 /* Estilos varios */
 .color-custom {
   color: #00a884;
-}
-
-.btn-custom {
-  background-color: #0e6b64 !important;
-  border-color: #0e6b64 !important;
-  color: white !important;
-}
-.btn-custom:hover {
-  background-color: #0b5a54 !important;
-  border-color: #0b5a54 !important;
 }
 
 .btn-outline-custom {

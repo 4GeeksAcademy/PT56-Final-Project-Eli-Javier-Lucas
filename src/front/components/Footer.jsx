@@ -11,8 +11,8 @@ export const Footer = () => {
 				<h4 className="">Tu familia...Tus metas... Tu Billetera Familiar!</h4>
 			</div>
 
-			<div className="footer_button">
-				<Link to="/SobreNosotros" className="btn btn-secondary">
+			<div className="footer_link">
+				<Link to="/SobreNosotros" className="footer_link-descripcion btn">
 					Sobre Nosotros
 				</Link>
 			</div>
