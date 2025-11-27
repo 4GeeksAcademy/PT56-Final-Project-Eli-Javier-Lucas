@@ -1,14 +1,12 @@
 import React from "react";
 import { Button } from "react-bootstrap";
+import { formatMoney } from "../js/utils";
 
-export const ListaGastos = ({ gastos, onEdit, onDelete }) => {
+export const ListaGastos = ({ gastos, onEdit, onDelete, moneda }) => {
     return (
         <div className="p-3 border rounded h-100">
             <h5 className="mb-3 text-center">Gastos</h5>
-
             {gastos.length === 0 && <p className="text-muted">No hay gastos registrados.</p>}
-
-            {/* Aplicamos la estructura de tabla si hay gastos */}
             {gastos.length > 0 && (
                 <div className="table-responsive">
                     <table className="table table-striped table-sm">
@@ -26,7 +24,9 @@ export const ListaGastos = ({ gastos, onEdit, onDelete }) => {
                                     <td>
                                         <strong>{item.description}</strong>
                                     </td>
-                                    <td>₡{item.amount}</td>
+                                    <td className="text-danger fw-bold">
+                                        {formatMoney(item.amount, moneda)}
+                                    </td>
                                     <td>{item.category}</td>
                                     <td className="d-flex justify-content-center gap-1">
                                         <Button

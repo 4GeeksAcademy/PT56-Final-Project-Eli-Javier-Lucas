@@ -1,21 +1,12 @@
 import React, { useState } from "react";
-import { Modal, Button, Form } from "react-bootstrap";
+import { Modal, Button, Form, InputGroup } from "react-bootstrap";
 
-export const AgregarIngreso = ({ show, handleClose, budgetId, token, onAdded }) => {
+export const AgregarIngreso = ({ show, handleClose, budgetId, token, onAdded, moneda }) => {
     const [monto, setMonto] = useState("");
     const [descripcion, setDescripcion] = useState("");
     const [categoria, setCategoria] = useState("");
     const [error, setError] = useState("");
-    const categoriasIngreso = [
-        "Salario",
-        "Freelance",
-        "Regalo",
-        "Reembolso",
-        "Intereses",
-        "Venta",
-        "Ahorro",
-        "Otros",
-    ];
+
     // Variable de entorno.-
     const API_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:3001";
 
@@ -59,13 +50,24 @@ export const AgregarIngreso = ({ show, handleClose, budgetId, token, onAdded }) 
             setMonto("");
             setDescripcion("");
             setCategoria("");
+            setError("")
             handleClose();
 
         } catch (error) {
             setError("Error al conectar con el servidor");
         }
     };
-
+    const categoriasIngresos = [
+        "Salario",
+        "Negocio Propio",
+        "Inversiones",
+        "Bonos / Aguinaldo",
+        "Pensiones",
+        "Alquileres",
+        "Regalos",
+        "Devoluciones",
+        "Otros"
+    ];
     return (
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton className="header-modal">
@@ -76,11 +78,19 @@ export const AgregarIngreso = ({ show, handleClose, budgetId, token, onAdded }) 
                 <Form>
                     <Form.Group className="mb-3">
                         <Form.Label>Monto</Form.Label>
-                        <Form.Control
-                            type="number"
-                            value={monto}
-                            onChange={e => setMonto(e.target.value)}
-                        />
+                        <InputGroup>
+                            <InputGroup.Text className="fw-bold bg-light">
+                                {moneda ? moneda.code : '$'}
+                            </InputGroup.Text>
+
+                            <Form.Control
+                                type="number"
+                                placeholder="0"
+                                name="monto"
+                                value={monto}
+                                onChange={e => setMonto(e.target.value)}
+                            />
+                        </InputGroup>
                     </Form.Group>
 
                     <Form.Group className="mb-3">
@@ -99,10 +109,11 @@ export const AgregarIngreso = ({ show, handleClose, budgetId, token, onAdded }) 
                             onChange={(e) => setCategoria(e.target.value)}
                         >
                             <option value="">Seleccione... </option>
-                            <option value="salario">Salario</option>
-                            <option value="bono">Bono</option>
-                            <option value="interes">Intereses</option>
-                            <option value="extra">Extras</option>
+                            {categoriasIngresos.map((cat, index) => (
+                                <option key={index} value={cat.toLowerCase()}>
+                                    {cat}
+                                </option>
+                            ))}
                         </Form.Select>
                     </Form.Group>
 

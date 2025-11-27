@@ -6,7 +6,7 @@ import { AgregarGasto } from "../components/AgregarGasto";
 import { ListaIngresos } from "../components/ListaIngresos";
 import { ListaGastos } from "../components/ListaGastos";
 import { Balance } from "../components/Balance";
-
+import { currencies } from "../js/utils"
 export const CreateBudget = () => {
 
     const navigate = useNavigate();
@@ -14,7 +14,7 @@ export const CreateBudget = () => {
     const [budgetId, setBudgetId] = useState(null);
     const [gastos, setGastos] = useState([]);
     const [ingresos, setIngresos] = useState([]);
-
+    const [monedaSeleccionada, setMonedaSeleccionada] = useState(currencies[0]);
     const [showIngreso, setShowIngreso] = useState(false);
     const [showGasto, setShowGasto] = useState(false);
 
@@ -54,12 +54,17 @@ export const CreateBudget = () => {
         if (!res.ok) return alert(data.msg || "Error creando presupuesto");
 
         setBudgetId(data.id);
+        localStorage.setItem(`budget_currency_${data.id}`, JSON.stringify(monedaSeleccionada));
         alert("Presupuesto creado");
         CargarBudget(data.id);
     };
 
     // Cargar el presupuesto
     const CargarBudget = async (id) => {
+        const monedaGuardada = localStorage.getItem(`budget_currency_${id}`);
+        if (monedaGuardada) {
+            setMonedaSeleccionada(JSON.parse(monedaGuardada));
+        }
         const res = await fetch(`${API_URL}/api/budgets/${id}`, {
             headers: { Authorization: `Bearer ${token}` },
         });
@@ -110,6 +115,12 @@ export const CreateBudget = () => {
             alert("Error al conectar con el servidor para eliminar el ingreso.");
         }
     };
+
+    const handleMonedaChange = (e) => {
+        const codigo = e.target.value;
+        const encontrada = currencies.find(c => c.code === codigo);
+        setMonedaSeleccionada(encontrada);
+    };
     return (
         <div className="create_budget container">
 
@@ -122,6 +133,19 @@ export const CreateBudget = () => {
                     onChange={(e) => setBudgetName(e.target.value)}
                     className="form-control w-50"
                 />
+                {!budgetId && (
+                    <select
+                        className="form-select w-auto"
+                        value={monedaSeleccionada.code}
+                        onChange={handleMonedaChange}
+                    >
+                        {currencies.map((curr) => (
+                            <option key={curr.code} value={curr.code}>
+                                {curr.code} - {curr.name}
+                            </option>
+                        ))}
+                    </select>
+                )}
                 <button className="btn" onClick={crearBudget}>
                     Crear Presupuesto
                 </button>
@@ -171,6 +195,7 @@ export const CreateBudget = () => {
                                 ingresos={ingresos}
                                 onEdit={() => { }}
                                 onDelete={BorrarIngreso} // Se pasa la función de eliminación
+                                moneda={monedaSeleccionada}
                             />
                         </div>
 
@@ -179,6 +204,7 @@ export const CreateBudget = () => {
                             <Balance
                                 ingresos={ingresos}
                                 gastos={gastos}
+                                moneda={monedaSeleccionada}
                             />
                         </div>
                     </div>
@@ -192,6 +218,7 @@ export const CreateBudget = () => {
                 budgetId={budgetId}
                 token={token}
                 onAdded={RecargarInfo}
+                moneda={monedaSeleccionada}
             />
 
             <AgregarGasto // Se pasan las props necesarias
@@ -200,6 +227,7 @@ export const CreateBudget = () => {
                 budgetId={budgetId}
                 token={token}
                 onAdded={RecargarInfo}
+                moneda={monedaSeleccionada}
             />
             <div className="create_budget-volver_presupuesto">
                 <button

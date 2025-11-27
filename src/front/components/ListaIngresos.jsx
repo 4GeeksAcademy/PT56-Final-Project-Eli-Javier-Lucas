@@ -1,8 +1,9 @@
 // components/ListaIngresos.jsx
 import React from "react";
 import { Button } from "react-bootstrap";
+import { formatMoney } from "../js/utils";
 
-export const ListaIngresos = ({ ingresos, onEdit, onDelete }) => {
+export const ListaIngresos = ({ ingresos, onEdit, onDelete, moneda }) => {
     return (
         <div className="p-3 border rounded h-100">
             <h5 className="mb-3 text-center">Ingresos</h5>
@@ -26,7 +27,9 @@ export const ListaIngresos = ({ ingresos, onEdit, onDelete }) => {
                                     <td>
                                         <strong>{item.description}</strong>
                                     </td>
-                                    <td>₡{item.amount}</td>
+                                    <td className="text-success fw-bold">
+                                        {formatMoney(item.amount, moneda)}
+                                    </td>
                                     <td>{item.category}</td>
                                     <td className="d-flex justify-content-center gap-1">
                                         <Button

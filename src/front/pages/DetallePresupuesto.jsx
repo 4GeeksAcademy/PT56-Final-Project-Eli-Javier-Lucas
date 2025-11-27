@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { validateToken } from "../js/auth";
+import { currencies } from "../js/utils";
 
 // Componentes importados
 import { Graficos } from '../components/Graficos';
@@ -21,7 +22,7 @@ export const DetallePresupuesto = () => {
     const [ingresos, setIngresos] = useState([]);
     const [gastos, setGastos] = useState([]);
     const [budgetName, setBudgetName] = useState("Cargando...");
-
+    const [monedaSeleccionada, setMonedaSeleccionada] = useState(currencies[0]);
     const [showIngreso, setShowIngreso] = useState(false);
     const [showGasto, setShowGasto] = useState(false);
     const [showEditarGasto, setShowEditarGasto] = useState(false);
@@ -34,6 +35,11 @@ export const DetallePresupuesto = () => {
 
     const loadBudget = async () => {
         if (!id) return;
+
+        const savedCurrency = localStorage.getItem(`budget_currency_${id}`);
+        if (savedCurrency) {
+            setMonedaSeleccionada(JSON.parse(savedCurrency));
+        }
 
         const res = await fetch(`${API_URL}/api/budgets/${id}`, {
             headers: { Authorization: `Bearer ${token}` },
@@ -201,6 +207,7 @@ export const DetallePresupuesto = () => {
                         ingresos={ingresos}
                         onEdit={handleEditIngreso}
                         onDelete={handleDeleteIngreso}
+                        moneda={monedaSeleccionada}
                     />
                 </div>
                 <div className="col-md-6">
@@ -208,6 +215,7 @@ export const DetallePresupuesto = () => {
                         gastos={gastos}
                         onEdit={handleEditGasto}
                         onDelete={handleDeleteGasto}
+                        moneda={monedaSeleccionada}
                     />
                 </div>
             </div>
@@ -227,7 +235,11 @@ export const DetallePresupuesto = () => {
                 <div className="col-md-6">
                     <div className="card h-100" style={{ backgroundColor: "#f2f2f2" }}>
                         <div className="card-body">
-                            <Balance ingresos={ingresos} gastos={gastos} />
+                            <Balance
+                                ingresos={ingresos}
+                                gastos={gastos}
+                                moneda={monedaSeleccionada}
+                            />
                         </div>
                     </div>
                 </div>
