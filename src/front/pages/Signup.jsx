@@ -15,8 +15,6 @@ export const Signup = () => {
 	const [loading, setLoading] = useState(false);
 	const navigate = useNavigate();
 
-	// const API_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:3001";
-
 	// Actualiza el estado 
 	const handleChange = (e) => {
 		setFormData({ ...formData, [e.target.id]: e.target.value });

@@ -22,7 +22,6 @@ import { Balance } from "./components/Balance";
 import { ListaPresupuestos } from "./components/ListaPresupuestos"
 import { Graficos } from "./components/Graficos"
 import { GraficoCarrusel } from "./components/GraficoCarrusel";
-import { SobreNosotros } from "./pages/SobreNosotros";
 
 
 export const router = createBrowserRouter(
@@ -33,7 +32,6 @@ export const router = createBrowserRouter(
       <Route index element={<Home />} />
       <Route path="Home" element={<Home />} />
       <Route path="InfoGestor" element={<InfoGestor />} />
-      <Route path="SobreNosotros" element={<SobreNosotros />} />
 
       {/* Auth Routes */}
       <Route path="login" element={<Login />} />
